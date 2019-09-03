@@ -3,6 +3,7 @@ import FWCore.ParameterSet.Config as cms
 import FWCore.ParameterSet.VarParsing as VarParsing
 import os
 
+
 # process = cms.Process("L1MuTkCorr")
 from Configuration.StandardSequences.Eras import eras
 process = cms.Process("L1", eras.Phase2_timing)
@@ -13,8 +14,8 @@ process.load('Configuration.StandardSequences.Services_cff')
 process.load('FWCore.MessageService.MessageLogger_cfi')
 process.load('Configuration.EventContent.EventContent_cff')
 process.load('Configuration.StandardSequences.MagneticField_cff')
-process.load('Configuration.Geometry.GeometryExtended2023D17Reco_cff') ## this needs to match the geometry you are running on
-process.load('Configuration.Geometry.GeometryExtended2023D17_cff')     ## this needs to match the geometry you are running on
+process.load('Configuration.Geometry.GeometryExtended2023D41Reco_cff') ## this needs to match the geometry you are running on
+process.load('Configuration.Geometry.GeometryExtended2023D41_cff')     ## this needs to match the geometry you are running on
 # the above is the default geometry from L1TT. The one below is a test
 # process.load('Configuration.Geometry.GeometryExtended2023D21Reco_cff') ## this needs to match the geometry you are running on
 # process.load('Configuration.Geometry.GeometryExtended2023D21_cff')     ## this needs to match the geometry you are running on
@@ -23,7 +24,8 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:upgradePLS3', '')
+#process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:upgradePLS3', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, '103X_upgrade2023_realistic_v2', '')
 print process.GlobalTag.globaltag
 # process.GlobalTag = GlobalTag(process.GlobalTag, '100X_upgrade2023_realistic_v1', '')
 # process.GlobalTag = GlobalTag(process.GlobalTag, '90X_upgrade2023_realistic_v9', '')
@@ -77,31 +79,32 @@ else:
     # '/store/mc/PhaseIIFall17D/SingleMu_FlatPt-2to100/GEN-SIM-DIGI-RAW/L1TPU200_93X_upgrade2023_realistic_v5-v1/00000/008F844C-0E43-E811-A851-A0369FE2C1E4.root',
     # '/store/mc/PhaseIIFall17D/SingleNeutrino/GEN-SIM-DIGI-RAW/L1TPU200_93X_upgrade2023_realistic_v5-v1/80000/00157B11-405C-E811-89CA-0CC47AFB81B4.root'
     #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_0.root'
-    '/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_0.root',
-    '/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_1.root',
-    '/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_2.root',
-    '/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_3.root',
-    '/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_4.root',
-    '/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_5.root',
-    '/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_6.root',
-    '/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_7.root',
-    '/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_8.root',
-    '/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_9.root',
-    '/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_10.root',
+    '/store/mc/PhaseIITDRSpring19DR/Nu_E10-pythia8-gun/GEN-SIM-DIGI-RAW/PU200_106X_upgrade2023_realistic_v3-v3/70001/1622E6AA-FCDD-9A4F-8F6A-104DA786EE03.root'
+    #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_0.root',
+    #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_1.root',
+    #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_2.root',
+    #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_3.root',
+    #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_4.root',
+    #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_5.root',
+    #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_6.root',
+    #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_7.root',
+    #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_8.root',
+    #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_9.root',
+    #'/store/group/l1upgrades/L1MuTrks/Ds_to_Tau3Mu_pythia8_5Apr2019_5MEvts/output/Tau3Mu_10.root',
   )
 
 process.source = cms.Source("PoolSource", fileNames = Source_Files,
     inputCommands = cms.untracked.vstring(
         'keep *',
-        'drop l1tEMTFHitExtras_simEmtfDigis_CSC_HLT',
-        'drop l1tEMTFHitExtras_simEmtfDigis_RPC_HLT',
-        'drop l1tEMTFTrackExtras_simEmtfDigis__HLT',
-        'drop l1tEMTFHit2016Extras_simEmtfDigis_CSC_HLT',
-        'drop l1tEMTFHit2016Extras_simEmtfDigis_RPC_HLT',
-        'drop l1tEMTFHit2016s_simEmtfDigis__HLT',
-        'drop l1tEMTFTrack2016Extras_simEmtfDigis__HLT',
-        'drop l1tEMTFTrack2016s_simEmtfDigis__HLT',
-        'drop l1tHGCalTowerMapBXVector_hgcalTriggerPrimitiveDigiProducer_towerMap_HLT'
+    #    'drop l1tEMTFHitExtras_simEmtfDigis_CSC_HLT',
+    #    'drop l1tEMTFHitExtras_simEmtfDigis_RPC_HLT',
+    #    'drop l1tEMTFTrackExtras_simEmtfDigis__HLT',
+    #    'drop l1tEMTFHit2016Extras_simEmtfDigis_CSC_HLT',
+    #    'drop l1tEMTFHit2016Extras_simEmtfDigis_RPC_HLT',
+    #    'drop l1tEMTFHit2016s_simEmtfDigis__HLT',
+    #    'drop l1tEMTFTrack2016Extras_simEmtfDigis__HLT',
+    #    'drop l1tEMTFTrack2016s_simEmtfDigis__HLT',
+    #    'drop l1tHGCalTowerMapBXVector_hgcalTriggerPrimitiveDigiProducer_towerMap_HLT'
     ),
     ## lines below are needed for my private production, since events from different files get the same run/lumi
     noEventSort = cms.untracked.bool(True),
@@ -198,7 +201,8 @@ process.TFileService = cms.Service('TFileService',
 )
 
 # process.SimL1TMuon = cms.Sequence(process.SimL1TMuonCommon+process.simTwinMuxDigis+process.simBmtfDigis+process.simEmtfDigis+process.simOmtfDigis+process.simGmtCaloSumDigis+process.simGmtStage2Digis+process.me0TriggerPseudoDigiSequence)
-process.SimL1TMuon = cms.Sequence(process.simEmtfDigis)
+from L1Trigger.L1TMuon.simDigis_cff import *
+process.SimL1TMuon = cms.Sequence(SimL1TMuon)
 process.Muons = cms.Path(process.SimL1TMuon)
 
 ## 12 Ott 2018 : Luca : revert manually the TkMu input from kBMTF to BMTF to avoid to run the kBMTF in the sequence
@@ -225,3 +229,7 @@ if options.inputFiles: # likely a cluster job
     process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 else: # likely a local test
     process.MessageLogger.cerr.FwkReport.reportEvery = 1
+
+
+#from L1Trigger.L1TMuonEndCap.customise_Phase2 import customise as customise_Phase2  
+#process = customise_Phase2(process)
